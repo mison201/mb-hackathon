@@ -1,24 +1,34 @@
 <template>
   <div class="py-10">
-    <template v-if="games.length">
-      <GameList v-if="showListGame" />
+    <GameList v-if="showConfig" />
 
-      <div v-else>Overview</div>
-    </template>
-
-    <GameList v-else />
+    <OverviewDashboard v-else />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'HomePage',
 
+  created() {
+    if (this.games.length === 0) {
+      this.$store.commit('game/setShowConfig', true);
+    }
+  },
+
   data() {
     return {
-      games: [],
       showListGame: false,
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      games: 'game/list',
+      showConfig: 'game/showConfig',
+    }),
   },
 };
 </script>

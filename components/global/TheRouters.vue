@@ -6,14 +6,22 @@
       exact-active-class="!text-white font-bold bg-gray-600/50"
       :to="{ name: 'index' }"
     >
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
-          d="M17 7.56569V16.6667C17 17.4142 16.4124 18 15.6875 18H13.9375C13.2126 18 12.625 17.4142 12.625 16.6667V12.6667H7.375V16.6464C7.375 17.394 6.78737 18 6.0625 18H4.3125C3.58763 18 3 17.394 3 16.6464V7.56569C3 7.14032 3.19979 6.74048 3.53778 6.4894L9.30438 2.20574C9.72998 1.93142 10.27 1.93142 10.6956 2.20574L16.4622 6.4894C16.8002 6.74048 17 7.14032 17 7.56569Z"
-          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+        />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
         />
       </svg>
 
-      <div class="h-[20px] leading-[22px]">Home</div>
+      <div class="h-[20px] leading-[22px]">Overview</div>
     </NuxtLink>
 
     <NuxtLink
@@ -21,10 +29,12 @@
       exact-active-class="!text-white font-bold bg-gray-600/50"
       :to="{ name: 'templates' }"
     >
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
-          d="M17 7.56569V16.6667C17 17.4142 16.4124 18 15.6875 18H13.9375C13.2126 18 12.625 17.4142 12.625 16.6667V12.6667H7.375V16.6464C7.375 17.394 6.78737 18 6.0625 18H4.3125C3.58763 18 3 17.394 3 16.6464V7.56569C3 7.14032 3.19979 6.74048 3.53778 6.4894L9.30438 2.20574C9.72998 1.93142 10.27 1.93142 10.6956 2.20574L16.4622 6.4894C16.8002 6.74048 17 7.14032 17 7.56569Z"
-          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
         />
       </svg>
 

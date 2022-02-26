@@ -4,7 +4,7 @@
       <div class="w-full flex flex-col space-y-5 items-center">
         <div class="text-xl font-medium">Add game</div>
 
-        <form class="mx-auto w-full" @submit.prevent="addNewGame">
+        <form class="mx-auto w-full">
           <div>
             <input
               v-model.trim="form.name"
@@ -48,13 +48,15 @@
           </div>
         </form>
 
-        <BaseButton>Confirm</BaseButton>
+        <BaseButton @click="addNewGame" :loading="loadingAddNewGame">Confirm</BaseButton>
       </div>
     </div>
   </TheModal>
 </template>
 
 <script>
+import _ from 'lodash';
+
 const blockchains = [
   {
     value: 'solana',
@@ -77,6 +79,7 @@ export default {
     return {
       blockchains,
       loadingUploadImage: false,
+      loadingAddNewGame: false,
       form: {
         name: '',
         description: '',
@@ -98,8 +101,17 @@ export default {
   },
 
   methods: {
-    addNewGame() {
-      console.log('addNewGame ============================');
+    async addNewGame() {
+      this.loadingAddNewGame = true;
+      this.form.avatar = 'https://www.meme-arsenal.com/memes/1c9bec1c1817f33f756ce195fab4e02f.jpg';
+      await this.$store.dispatch('game/addNewGame', this.form);
+
+      this.resetForm();
+
+      await new Promise((r) => setTimeout(r, 700));
+
+      this.loadingAddNewGame = false;
+      this._visible = false;
     },
 
     async onReadFile(image) {
@@ -118,6 +130,15 @@ export default {
       }
 
       this.loadingUploadImage = false;
+    },
+
+    resetForm() {
+      this.form = {
+        name: '',
+        description: '',
+        blockchain: 'solana',
+        avatar: '',
+      };
     },
   },
 };
